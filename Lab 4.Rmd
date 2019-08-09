@@ -1,0 +1,29 @@
+---
+title: "Lab 4"
+author: "Ian McDonald"
+date: "4/11/2019"
+output: html_document
+---
+
+
+https://stats.idre.ucla.edu/r/dae/logit-regression/
+
+
+**Lab 4**
+
+```{r}
+lab_4 <- read_dta("Lab 4 Data.dta")
+```
+
+
+1.  The paper instructions require you to write out the equation for your regression.  The equation will depend on whether you are doing OLS or logit (templates available on class slides and in your textbooks).  For now, open up a word document and go to insert > equation.  Play around with the equation editor and make sure you know how to 1) enter Greek letters and 2) Enter Subscripts.  
+
+3.  You are going to test the hypothesis that political discussions have a causal effect on opposition to government wiretapping.    Your theory is that when people have more political discussions, they would become more aware of the extent of US wiretapping, and oppose this practice.  Review the codebook at the end of this document to look at some potential variables to use in this analysis.    Be thoughtful here – you want to choose variables that control for all the relevant confounds.  Your gold standard would be to control for everything so that the effect of political discussions is isolated.  [As if you are comparing two people who are exactly the same in every way except one person has more political discussions than the other.]
+
+4.  Select the variables you will use for your analysis.  Run summary statistics to check to make sure each variable ranges as suggested by the codebook.   If variables need to be recoded to delete for missing value, recode them.  Be sure to include R02 as one of your variables.  Combine “NA” and “Other” and make “White” the omitted category when you run your regression in step 6.
+
+6.  Run a logistic regression with wiretapping_toofar as your DV and frequency_political_discussion
+ as your primary IV.  Add your array of control variables to isolate the effect of political discussion and reduce the possibility of a false-positive finding. 
+ 
+The syntax is:  glm(dv ~ iv1 + iv2 + ..., data = dataset, family = )
+ The command for a logistic regression is logit.  The syntax is “logit DV IV controls”. [note: it doesn’t matter here that “IV” is listed before “controls” – Stata treats all independent variables the same.  It is just nice to have the variable you really care about appear first in your table]
